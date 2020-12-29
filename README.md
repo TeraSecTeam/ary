@@ -83,6 +83,12 @@ yum install google-chrome-stable
 google-chrome --version
 ```
 
+3. 配置文件
+
+默认加载配置为带有 `settings.ini` 的文件
+
+`configs/example.settings.ini` 文件为配置示例，可以修改其内容，如加入网络搜索引擎的token
+
 ## 使用
 
 ### 网络空间搜索
