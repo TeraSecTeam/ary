@@ -18,7 +18,7 @@ Ary 是一个集成类工具，主要用于调用各种安全工具，从而形�
 
 ## 相关文档
 
-![我的一键 getshell 代码开发之路v1.8.pdf](./doc/我的一键 getshell 代码开发之路v1.8.pdf)
+[我的一键 getshell 代码开发之路v1.8.pdf](./doc/我的一键 getshell 代码开发之路v1.8.pdf)
 
 
 ## 功能
