@@ -18,7 +18,7 @@ Ary 是一个集成类工具，主要用于调用各种安全工具，从而形�
 
 ## 下载
 
-![前往releases下载](https://github.com/TeraSecTeam/ary/releases/)
+[前往releases下载](https://github.com/TeraSecTeam/ary/releases/)
 
 ## 相关文档
 
