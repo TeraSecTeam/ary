@@ -73,8 +73,18 @@ Ary 是一个集成类工具，主要用于调用各种安全工具，从而形�
 1.安装所有的工具引擎：
 
 ```bash
-./ary --vulnscan --engine all --update -v
+# 更新所有引擎，如果存在则不更新
+./ary --manager --update -v
+
+# 强制更新所有引擎
+./ary --manager --update --force -v  
+
+# 根据各个模块去更新引擎
 ./ary --assertscan --engine all --update -v
+./ary --vulnscan --engine all --update -v
+
+# 更新 PoC 
+./ary --pocscan --update --keyword poc -v
 ```
 
 2.chrome 的安装(爬虫需要)
@@ -96,13 +106,29 @@ yum install google-chrome-stable
 google-chrome --version
 ```
 
-3. 配置文件
+3.docker 的安装(容器需要)
 
-默认加载配置为带有 `settings.ini` 的文件
+```bash
+yum install docker -y
+service docker start
+```
 
-`configs/example.settings.ini` 文件为配置示例，可以修改其内容，如加入网络搜索引擎的token
 
 ## 使用
+
+使用 `-h` 能够自动生成所有相关的目录和文件。
+
+```bash
+./ary -h
+```
+
+1. `REAME.md` 文件能够自动生成。
+
+2. 在任何情况下，使用 `-v` 能够查看debug详情。
+
+3. `/onfigs/settings.ini` 为主要的配置文件，使用网络空间搜索需要在其中配置凭证。
+
+4. `streams.yaml` 为执行流文件，相关执行流在这其中配置。
 
 ### 网络空间搜索
 
@@ -246,6 +272,51 @@ ARL:
 ```bash
 ./ary --pocscan --keyword thinkphp --poc thinkphp_rce2 -v --limit 20 --dumppcap thinkphp
 ```
+
+### suricata 测试
+
+可以对 suricata 规则进行测试, 需先拉取和启用 suricata 容器 (注意：本功能需要社区版权限)
+
+```bash
+./ary --docker --action run --engine suricata --pcap thinkphp --rule thinkphp -v
+```
+
+对一个漏洞进行打流和测试的示例
+
+```yaml
+checkrule:
+  name: checkrule
+  steps:
+  - pocscan: True  # 第一步，拉取 pocsuite poc
+    update: True
+    keyword: poc
+    v: True
+  - netsearch: True  # 第二步，收集 thinkphp 域名
+    engine: fofa
+    keyword: thinkphp
+    limit: 10
+    v: True
+  - pocscan: True  # 第三步，使用 thinkphp 相关 poc 打流量并录成流量包
+    keyword: thinkphp
+    poc: Think_RCE_invokefunction_1
+    limit: 10
+    dumppcap: thinkphp
+    v: True
+  - command: mv output/thinkphp*.pcap mounts/pcaps/  # 第四步，将流量包移动到挂载目录下
+  - docker: True  # 第五步，进行测试
+    action: run
+    engine: suricata
+    pcap: thinkphp
+    rule: thinkphp
+    v: True
+```
+
+执行上面的执行流示例：
+
+```bash
+./ary --stream --keyword checkrule -v
+```
+
 
 ### 导入认证证书
 
