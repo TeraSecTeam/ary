@@ -34,8 +34,8 @@ Ary 是一个集成类工具，主要用于调用各种安全工具，从而形�
 0. 信息收集工具(开发中)
 1. 通过多个网络空间的搜索引擎批量爬取相应网站, 如 Fofa, shodan, censys
 2. 通过资产识别工具探测，如 ARL, Rad, crawlgo, gospider
-3. 非指向性漏扫工具， 如 xray, (AWVS, MSF 开发中)
-4. 通过 PoC 工具验证漏洞，如 pocsuite, (osprey 开发中)
+3. 非指向性漏扫工具， 如 xray,AWVS, (MSF 开发中)
+4. 通过 PoC 工具验证漏洞,目前已支持 pocsuite3 python, xray yaml 两种形式的 poc
 5. webshell 管理工具批量 getshell, 如 CobaltStrike, antsword (此模块开发中)
 6. 录包工具
 7. 执行流
