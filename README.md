@@ -39,6 +39,7 @@ Ary 是一个集成类工具，主要用于调用各种安全工具，从而形�
 5. webshell 管理工具批量 getshell, 如 CobaltStrike, antsword (此模块开发中)
 6. 录包工具
 7. 执行流
+8. 流量检测规则编写与测试，如 suricata 规则编写
 
 ## 自动挖洞思路
 
