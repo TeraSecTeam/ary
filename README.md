@@ -6,7 +6,7 @@ Ary 是一个集成类工具，主要用于调用各种安全工具，从而形�
 
 ![](https://img.shields.io/github/stars/TeraSecTeam/ary?style=flat-square) ![](https://img.shields.io/github/downloads/TeraSecTeam/ary/total?style=flat-square)
  
-> 版本：2.0.0  公开版
+> 版本：2.1.0  公开版
 >
 > 作者： Ali0th
 >
@@ -130,6 +130,20 @@ service docker start
 
 4. `streams.yaml` 为执行流文件，相关执行流在这其中配置。
 
+### docker 控制
+
+```bash
+# 需要使用 awvs 时启用
+./ary --docker --action start --engine awvs -v
+./ary --docker --action stop --engine awvs -v
+./ary --docker --action remove --engine awvs -v
+
+# 需要测试 suricata 时启用
+./ary --docker --action start --engine suricata -v
+./ary --docker --action stop --engine suricata -v
+./ary --docker --action remove --engine suricata -v
+```
+
 ### 网络空间搜索
 
 ```bash
@@ -174,6 +188,19 @@ ARL:
 ./ary --assertscan --engine gospider --url http://testphp.vulnweb.com/ -v
 
 ./ary --assertscan --engine crawlergo --url http://testphp.vulnweb.com/ -v
+```
+
+AWVS:
+
+```bash
+# 使用 awvs 进行爬虫，并保存到 txt 文件，不等待
+./ary --vulnscan --engine awvs --url testphp.vulnweb.com -v --crawl
+
+# 使用 awvs 进行漏洞扫描
+./ary --vulnscan --engine awvs --url testphp.vulnweb.com -v
+
+# 获取 awvs 结果(状态)
+./ary --vulnscan --engine awvs --fetch-result --keyword 4704d46c-908a-4c2d-85bf-a615cc396d49 -v
 ```
 
 ### 漏洞扫描：
