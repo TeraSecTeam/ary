@@ -370,7 +370,11 @@ xray yaml 格式：
 
 4、编写防守规则 - 编写 suricata 测试规则
 
-suricata 规则文件遵循 `group - vulnerability - point` 的逻辑，意即每一个组为一个组件或框架，一个组下面有多个漏洞项，每个漏洞项下有多种检测点。
+suricata 格式：
+
+参考: https://suricata.readthedocs.io
+
+suricata yaml 规则文件遵循 `group - vulnerability - point` 的逻辑，意即每一个组为一个组件或框架，一个组下面有多个漏洞项，每个漏洞项下有多种检测点。
 
 point 的最少字段为 rule 和 state，其它字段默认使用 group 的字段；若 point 定义了字段，则优先使用 point 的字段。
 
