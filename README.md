@@ -368,7 +368,7 @@ xray yaml 格式：
 
 参考：https://docs.xray.cool/#/guide/poc
 
-4、编写 suricata 测试规则
+4、编写防守规则 - 编写 suricata 测试规则
 
 ```yaml
 gid: 200863  # 组编号
