@@ -341,9 +341,10 @@ AWVS:
 使用这个工具，可以解决我们目前安全能力的需求，一方面是红队的规则，主要是漏洞的 PoC，现在同时支持了 pocsutie3 和 xray yaml 的规则格式，另一方面是蓝队的规则，主要是 suricata 的检测规则，可以支持编写与测试。目前已经能够使用  Ary 进行攻击规则、流量检测规则的流程走通。
 
 1、下载 ary ，需环境： centos
+
 https://github.com/TeraSecTeam/ary/releases/
 
-需要使用证书才能进行 suricata 规则编写与测试功能，证书见附件。
+需要使用证书才能进行 suricata 规则编写与测试功能，私聊我获取。
 
 2、装 suricata 的 docker环境
 
