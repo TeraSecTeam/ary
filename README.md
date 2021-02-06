@@ -6,7 +6,7 @@ Ary 是一个集成类工具，主要用于调用各种安全工具，从而形�
 
 ![](https://img.shields.io/github/stars/TeraSecTeam/ary?style=flat-square) ![](https://img.shields.io/github/downloads/TeraSecTeam/ary/total?style=flat-square)
  
-> 版本：2.1.0  公开版
+> 版本：2.1.1  公开版
 >
 > 作者： Ali0th
 >
